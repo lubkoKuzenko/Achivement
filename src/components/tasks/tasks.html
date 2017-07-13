@@ -1,1 +1,26 @@
-<h1>Tasks</h1>
+<ul class="list-group">
+  <li ng-repeat="item in vm.tasks track by $index" class="list-group-item">
+    <div class="row" ng-click="isOpen = !isOpen">
+      <div class="progress-detail">
+        <i class="category-icon glyphicon glyphicon-tasks pull-left"></i>
+        <span class="category-title">{{item.name}}</span>
+        <span class="category">{{item.category}}</span>
+      </div>
+      <div class="progress">
+          <div class="progress-bar" ng-style="{'width': item.progress + '%'}"></div>
+      </div>
+      <div class="progress-value">{{item.progress}}/100%</div>
+    </div>
+    <div class="row hidden-area" ng-init="isOpen = false" ng-show="isOpen">
+      <button type="button" class="btn btn-default pull-left" ng-click="vm.onEditClick()">Edit</button>
+      <div class="input-group pull-right col-xs-1">
+        <button type="button" class="btn btn-default btn-number" ng-click="vm.onMinusClick()" data-type="minus" data-field="quant[1]">
+            <span class="glyphicon glyphicon-minus"></span>
+        </button>
+        <button type="button" class="btn btn-default btn-number" ng-click="vm.onPlusClick()" data-type="plus" data-field="quant[1]">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </div>
+    </div>
+  </li>
+</ul>

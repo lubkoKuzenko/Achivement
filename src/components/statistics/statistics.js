@@ -3,7 +3,8 @@ import uiRouter from 'angular-ui-router';
 import StatsComponent from './statistics.component';
 
 const statsModule = angular.module('stats', [
-  uiRouter
+  uiRouter,
+  'chart.js'
 ])
 
   .config(($stateProvider, $urlRouterProvider) => {
