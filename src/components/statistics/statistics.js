@@ -7,6 +7,8 @@ const statsModule = angular.module('stats', [
 ])
 
   .config(($stateProvider, $urlRouterProvider) => {
+    $urlRouterProvider.otherwise('/tasks');
+    
     $stateProvider
       .state('stats', {
         url: '/stats',

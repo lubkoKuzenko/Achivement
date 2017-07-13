@@ -7,6 +7,8 @@ const AddTaskModule = angular.module('addtask', [
 ])
 
   .config(($stateProvider, $urlRouterProvider) => {
+    $urlRouterProvider.otherwise('/tasks');
+    
     $stateProvider
       .state('addtask', {
         url: '/addtask',

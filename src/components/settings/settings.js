@@ -7,6 +7,8 @@ const SettingsModule = angular.module('settings', [
 ])
 
   .config(($stateProvider, $urlRouterProvider) => {
+    $urlRouterProvider.otherwise('/tasks');
+    
     $stateProvider
       .state('settings', {
         url: '/settings',

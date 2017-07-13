@@ -7,9 +7,11 @@ const tasksModule = angular.module('tasks', [
 ])
 
   .config(($stateProvider, $urlRouterProvider) => {
+    $urlRouterProvider.otherwise('/tasks');
+
     $stateProvider
       .state('tasks', {
-        url: '/',
+        url: '/tasks',
         template: '<tasks></tasks>'
       });
   })

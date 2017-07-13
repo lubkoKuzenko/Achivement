@@ -13,10 +13,10 @@
 <footer>
   <div class="col-xs-12 navbar-inverse navbar-fixed-bottom">
     <div class="row" id="bottomNav">
-      <div class="col-xs-3 text-center"><a ui-sref="tasks"><i class="glyphicon glyphicon glyphicon-tasks"></i><br>Tasks</a></div>
-      <div class="col-xs-3 text-center"><a ui-sref="completed"><i class="glyphicon 	glyphicon glyphicon-check"></i><br>Completed</a></div>
-      <div class="col-xs-3 text-center"><a ui-sref="stats"><i class="glyphicon glyphicon glyphicon-stats"></i><br>Stats</a></div>
-      <div class="col-xs-3 text-center"><a ui-sref="settings"><i class="glyphicon glyphicon glyphicon-asterisk"></i><br>Settings</a></div>
+      <div class="col-xs-3 text-center"><a ng-class="vm.getClass('/tasks')" ui-sref="tasks"><i class="glyphicon glyphicon glyphicon-tasks"></i><br>Tasks</a></div>
+      <div class="col-xs-3 text-center"><a ng-class="vm.getClass('/completed')" ui-sref="completed"><i class="glyphicon 	glyphicon glyphicon-check"></i><br>Completed</a></div>
+      <div class="col-xs-3 text-center"><a ng-class="vm.getClass('/stats')" ui-sref="stats"><i class="glyphicon glyphicon glyphicon-stats"></i><br>Stats</a></div>
+      <div class="col-xs-3 text-center"><a ng-class="vm.getClass('/settings')" ui-sref="settings"><i class="glyphicon glyphicon glyphicon-asterisk"></i><br>Settings</a></div>
     </div>
   </div>
 </footer>

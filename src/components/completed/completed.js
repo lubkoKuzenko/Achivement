@@ -7,6 +7,8 @@ const CompletedModule = angular.module('completed', [
 ])
 
   .config(($stateProvider, $urlRouterProvider) => {
+    $urlRouterProvider.otherwise('/tasks');
+    
     $stateProvider
       .state('completed', {
         url: '/completed',

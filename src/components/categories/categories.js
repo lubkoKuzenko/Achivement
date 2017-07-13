@@ -7,6 +7,8 @@ const CategoriesModule = angular.module('categories', [
 ])
 
   .config(($stateProvider, $urlRouterProvider) => {
+    $urlRouterProvider.otherwise('/tasks');
+    
     $stateProvider
       .state('categories', {
         url: '/categories',
