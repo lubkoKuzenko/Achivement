@@ -1,0 +1,22 @@
+<header>
+  <nav class="col-xs-12 navbar navbar-inverse navbar-fixed-top">
+    <div class="row" id="topNav">
+      <div class="col-xs-1 text-center pull-left"><a ui-sref="categories"><i class="glyphicon glyphicon glyphicon-cloud"></i></a></div>
+      <div class="col-xs-10 text-center title">iAchivement</div>
+      <div class="col-xs-1 text-center pull-right"><a ui-sref="addtask"><i class="glyphicon glyphicon glyphicon-plus"></i></a></div>
+    </div>
+  </nav>
+</header>
+
+<div ui-view></div>
+
+<footer>
+  <div class="col-xs-12 navbar-inverse navbar-fixed-bottom">
+    <div class="row" id="bottomNav">
+      <div class="col-xs-3 text-center"><a ui-sref="tasks"><i class="glyphicon glyphicon glyphicon-tasks"></i><br>Tasks</a></div>
+      <div class="col-xs-3 text-center"><a ui-sref="completed"><i class="glyphicon 	glyphicon glyphicon-check"></i><br>Completed</a></div>
+      <div class="col-xs-3 text-center"><a ui-sref="stats"><i class="glyphicon glyphicon glyphicon-stats"></i><br>Stats</a></div>
+      <div class="col-xs-3 text-center"><a ui-sref="settings"><i class="glyphicon glyphicon glyphicon-asterisk"></i><br>Settings</a></div>
+    </div>
+  </div>
+</footer>

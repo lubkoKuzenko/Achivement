@@ -1,0 +1,39 @@
+html,
+body {
+  overflow: auto;
+  height: 100%;
+  padding-bottom: 70px;
+  padding-top: 20px;
+}
+.navbar-inverse{
+  border-color: #333;
+}
+#topNav{
+  & > div{
+    padding-top: 8px;
+  }
+  .title{
+    color: red;
+    font-size: 3rem;
+    line-height: 50px;
+  }
+  a{
+    font-size:3rem;
+    line-height: 50px;
+    text-decoration: none;
+    color:#ddd;
+    width: 100%;
+    display: block;
+  }
+}
+
+#bottomNav {
+  padding:10px 0px;
+  a {
+      font-size:2rem;
+      text-decoration: none;
+      color:#ddd;
+      width: 100%;
+      display: block;
+  }
+}
