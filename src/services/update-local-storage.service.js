@@ -2,28 +2,31 @@ import * as angular from 'angular';
 
 export class UpdateLocalStorageService {
 
-  constructor(localStorageService){
+  constructor(localStorageService, lodash){
     this.localStorageService = localStorageService;
+    this.lodash = lodash;
     this.localStorage = angular.fromJson(this.localStorageService.get("iAchivement"));
 
-    this.caterories = this.localStorage.categories;
-		this.tasks = this.localStorage.tasks;
+    if(!this.lodash.isNull(this.localStorage)){
+      this.caterories = this.localStorage.categories;
+		  this.tasks = this.localStorage.tasks;
+    }
   }
 
   static factory() {
-    let service = (localStorageService) => {
-      return new UpdateLocalStorageService(localStorageService);
+    let service = (localStorageService, lodash) => {
+      return new UpdateLocalStorageService(localStorageService, lodash);
     }
-    service.$inject = ['localStorageService'];
+    service.$inject = ['localStorageService', 'lodash'];
     return service;
   }
 
   getCategories(){
-    return angular.fromJson(this.localStorageService.get("iAchivement")).categories;
+    return !this.lodash.isNull(this.localStorage) ? angular.fromJson(this.localStorageService.get("iAchivement")).categories : null;
   }
 
   getTasks(){
-    return angular.fromJson(this.localStorageService.get("iAchivement")).tasks;
+    return !this.lodash.isNull(this.localStorage) ? angular.fromJson(this.localStorageService.get("iAchivement")).tasks : null;
   }
 
   updateLocalCategories(newCategory){
@@ -31,8 +34,15 @@ export class UpdateLocalStorageService {
 		this.putToLocalStorage();
   }
 
-  updateLocalTasks(newTask){
+  addLocalTasks(newTask){
     this.tasks.push(newTask)
+		this.putToLocalStorage();
+  }
+
+  deleteLocalTasks(index){
+    this.tasks = this.lodash.filter(this.tasks, (o) => { 
+			return !this.lodash.isEqual(o, this.tasks[index]); 
+		});
 		this.putToLocalStorage();
   }
 

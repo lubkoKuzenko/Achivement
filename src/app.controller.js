@@ -16,29 +16,7 @@ export default class AppController {
 		// 		name: 'Travelling',
 		// 		icon: 'glyphicon-plane'
 		// 	}],
-		// 	tasks:[
-		// 		{
-		// 			name: 'norway',
-		// 			category: 'Travelling',
-		// 			done: false,
-		// 			progress: 30,
-		// 			date: "12-01-2012"
-		// 		},
-		// 		{
-		// 			name: 'senior developer',
-		// 			category: 'Career',
-		// 			done: true,
-		// 			progress: 100,
-		// 			date: "30-11-2017"
-		// 		},
-		// 		{
-		// 			name: 'angularjs',
-		// 			category: 'Career',
-		// 			done: false,
-		// 			progress: 50,
-		// 			date: "22-11-2015"
-		// 		}
-		// 	]
+		// 	tasks:[]
 		// }
 
 		// if(localStorageService.isSupported) {

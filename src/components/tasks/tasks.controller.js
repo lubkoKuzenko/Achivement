@@ -1,25 +1,28 @@
 export default class TasksController {
-	constructor($scope, $timeout, localStorageService, lodash, $location) {
+	constructor($scope, $timeout, UpdateLocalStorageService, lodash, $location) {
+		this.lodash = lodash;
 		this.$scope = $scope;
 		this.$timeout = $timeout;
 		this.$location = $location;
-		this.localStorageService = localStorageService;
+		this.UpdateLocalStorageService = UpdateLocalStorageService;
 
-		const data = angular.fromJson(this.localStorageService.get("iAchivement"));
 		const query = this.$location.search().name;
 
-		this.tasks = lodash.filter(data.tasks, o => { 
+		this.tasks = this.lodash.filter(this.UpdateLocalStorageService.getTasks(), o => { 
 			if(query === 'All' || !query){
 				return o.progress !== 100;
 			} else {
 				return o.progress !== 100 && o.category === query;
 			}
 		})
-		this.icon = data.categories.icon;
 	}
 
 	onEditClick(){
 		console.log("edit")
+	}
+
+	onDeleteClick(index){
+		this.tasks = this.UpdateLocalStorageService.deleteLocalTasks(index);
 	}
 
 	onMinusClick(){

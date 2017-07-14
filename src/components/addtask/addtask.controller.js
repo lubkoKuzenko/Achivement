@@ -25,6 +25,6 @@ export default class AddTaskController {
 	}
 
 	onSubmit(){
-		this.UpdateLocalStorageService.updateLocalTasks(this.user);
+		this.UpdateLocalStorageService.addLocalTasks(this.user);
 	}
 }
