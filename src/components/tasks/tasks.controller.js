@@ -15,7 +15,7 @@ export default class TasksController {
 			if(query === 'All' || !query){
 				return o.progress !== o.goal;
 			} else {
-				return o.progress === o.goal && o.category === query;
+				return o.progress !== o.goal && o.category === query;
 			}
 		}), ['difficulty'], ['asc'])
 	}
