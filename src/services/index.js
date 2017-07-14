@@ -1,2 +1,2 @@
 import './module';
-import './traffic.service';
+import './update-local-storage.service';

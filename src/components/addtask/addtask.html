@@ -4,64 +4,66 @@
   <div class="panel-heading">New Task</div>
   <div class="panel-body">
     <form name="userForm" ng-submit="userForm.$valid && vm.onSubmit()" novalidate>
-      <div class="form-group" ng-class="userForm.firstname.$dirty && userForm.firstname.$invalid ? 'has-error' : ''">
-        <label for="status">First Name </label>
-        <input type="text" class="form-control" name="firstname" placeholder="First Name" ng-model="vm.user.firstname" required />
+      <fieldset class="the-fieldset">
+        <legend class="the-legend">Task Details</legend>
+        <div class="form-group" ng-class="userForm.name.$dirty && userForm.name.$invalid ? 'has-error' : ''">
+          <label for="status">Task Title </label>
+          <input type="text" class="form-control" name="name" placeholder="Task Title" ng-model="vm.user.name" required />
 
-        <div class="error-block" ng-show="userForm.firstname.$dirty && userForm.firstname.$invalid">
-          <label class="control-label" ng-show="userForm.$invalid && userForm.firstname.$error.required">First name is required.</span>
-                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                    <span id="inputError2Status" class="sr-only">(error)</span>
-                </div>
-            </div>
-            <div class="form-group" ng-class="userForm.lastname.$dirty && userForm.lastname.$invalid ? 'has-error' : ''">
-                <label for="status">Last Name</label>
-          <input type="text" class="form-control" name="lastname" placeholder="Last Name" ng-model="vm.user.lastname" required>
-          <div class="error-block" ng-show="userForm.lastname.$dirty && userForm.lastname.$invalid">
-            <label class="control-label" ng-show="userForm.lastname.$error.required">Last name is required</label>
+          <div class="error-block" ng-show="userForm.name.$dirty && userForm.name.$invalid">
+            <label class="control-label" ng-show="userForm.$invalid && userForm.name.$error.required">Task Title is required.</label>
             <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
             <span id="inputError2Status" class="sr-only">(error)</span>
           </div>
         </div>
-        <div class="form-group" ng-class="userForm.email.$dirty && userForm.email.$invalid ? 'has-error' : ''">
-          <label for="status">Email</label>
-          <input type="text" class="form-control" name="email" placeholder="Email" ng-model="vm.user.email" ng-pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
-            required>
-          <div class="error-block" ng-show="userForm.email.$dirty && userForm.email.$invalid">
-            <label class="control-label" ng-show="userForm.email.$error.required">Email is required.</label>
-            <label class="control-label" ng-show="userForm.email.$error.pattern">Email is not valid.</label>
-            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-            <span id="inputError2Status" class="sr-only">(error)</span>
-          </div>
-        </div>
-        <div class="form-group has-feedback" ng-class="{ 'has-error': vm.submited }">
-          <label for="status" class="control-label">Mobile Number</label>
-          <input type="text" class="form-control" id="mobile" name="mobile" ng-model="vm.user.mobile" ui-mask="(999) 999-9999" ui-mask-placeholder
-            ui-mask-placeholder-char="_" required>
 
-          <div class="error-block" ng-show="vm.submited">
-            <label class="control-label" ng-show="userForm.email.$error.pattern">Mobile Number is required.</label>
-            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-            <span id="inputError2Status" class="sr-only">(error)</span>
-          </div>
-        </div>
         <div class="form-group has-feedback" ng-class="{ 'has-error': vm.submited }">
-          <label for="status" class="control-label">Status</label>
-          <select class="form-control" id="status" name="status" ng-model="vm.user.status" required>
-                    <option>Paid</option>
-                    <option>Unpaid</option>
-                </select>
+          <label for="status" class="control-label">Category</label>
+          <select class="form-control" id="status" name="status" ng-model="vm.user.category" ng-options="category.name as category.name for category in vm.caterories" required></select>
           <div class="error-block" ng-show="vm.submited">
             <span id="inputError2Status" class="sr-only">(error)</span>
           </div>
         </div>
+      </fieldset>
 
-        <div class="clearfix"></div>
-        <!--ng-class="userForm.$valid ? '' : 'disabled'"-->
-        <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+      <fieldset class="the-fieldset">
+        <legend class="the-legend">Goal Details</legend>
+        <div class="row">
+          <div class="counter col-md-3 pull-left">
+            <p class="counter-count" ng-model="vm.user.counter">{{vm.user.counter}}</p>
+          </div>
+          <div class="col-md-2 pull-right text-right">
+            <button type="button" class="btn btn-default btn-number" ng-click="vm.onMinusClick()" data-type="minus" data-field="quant[1]">
+                <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            <button type="button" class="btn btn-default btn-number" ng-click="vm.onPlusClick()" data-type="plus" data-field="quant[1]">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="the-fieldset">
+        <legend class="the-legend">Difficulty Level</legend>
+        <div class="form-group" ng-class="userForm.lastname.$dirty && userForm.lastname.$invalid ? 'has-error' : ''">
+          <label for="status">Level</label>
+          <input type="number" min="1" max="10" class="form-control" name="difficulty" placeholder="Level" ng-model="vm.user.difficulty" required>
+          <div class="error-block" ng-show="userForm.difficulty.$dirty && userForm.difficulty.$invalid">
+            <label class="control-label" ng-show="userForm.difficulty.$error.required">Difficulty level is required</label>
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span id="inputError2Status" class="sr-only">(error)</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="clearfix"><br/></div>
+      <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right" ng-class="userForm.$valid ? '' : 'disabled'">Submit Form</button>
     </form>
-    </div>
-    <div class="panel-footer">
-      <pre>{{ vm.user | json}}</pre>
+  </div>
+  <div class="panel-footer">
+    <!--<pre>{{ vm.user | json}}</pre>-->
+    <div class="alert alert-info">
+      <strong>Info!</strong> The easier (lower number), the goal will be display at the top.
     </div>
   </div>
+</div>
