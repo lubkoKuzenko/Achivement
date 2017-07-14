@@ -39,11 +39,32 @@ export class UpdateLocalStorageService {
 		this.putToLocalStorage();
   }
 
-  deleteLocalTasks(index){
-    this.tasks = this.lodash.filter(this.tasks, (o) => { 
-			return !this.lodash.isEqual(o, this.tasks[index]); 
-		});
-		this.putToLocalStorage();
+  deleteLocalTasks(name){
+    this.lodash.remove(this.tasks, n => {
+      return n.name === name;
+    });
+    this.putToLocalStorage();
+    return this.tasks
+  }
+
+  plusLocalTasks(name){
+    this.lodash.find(this.tasks, o => { 
+      if(o.name === name && o.progress !== o.goal){
+        o.progress += 1;
+      }
+    });
+    this.putToLocalStorage();
+    return this.tasks;
+  }
+
+  minusLocalTasks(name){
+    this.lodash.find(this.tasks, o => { 
+      if(o.name === name && o.progress !== 0){
+        o.progress -= 1;
+      }
+    });
+    this.putToLocalStorage();
+    return this.tasks;
   }
 
   putToLocalStorage(){

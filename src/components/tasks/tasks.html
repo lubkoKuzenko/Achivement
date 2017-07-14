@@ -7,18 +7,19 @@
         <span class="category">{{item.category}}</span>
       </div>
       <div class="progress">
-        <div class="progress-bar" ng-style="{'width': item.progress + '%'}"></div>
+        <div class="progress-bar" ng-style="{'width': (item.progress / item.goal) * 100 + '%'}"></div>
       </div>
-      <div class="progress-value">{{item.progress}}/100%</div>
+     
+      <div class="progress-value">{{item.progress}}/{{item.goal}}</div>
     </div>
     <div class="row hidden-area" ng-init="isOpen = false" ng-show="isOpen">
-      <button type="button" class="btn btn-default pull-left" ng-click="vm.onEditClick()">Edit</button>
-      <button type="button" class="btn btn-default pull-left" ng-click="vm.onDeleteClick($index)">Delete</button>
+      <button type="button" class="btn btn-warning pull-left" ng-click="vm.onEditClick(item.name)">Edit</button>
+      <button type="button" class="btn btn-danger pull-left" ng-click="vm.onDeleteClick(item.name)">Delete</button>
       <div class="input-group pull-right col-xs-2 text-right">
-        <button type="button" class="btn btn-default btn-number" ng-click="vm.onMinusClick()" data-type="minus" data-field="quant[1]">
+        <button type="button" class="btn btn-default btn-number" ng-click="vm.onMinusClick(item.name)" data-type="minus" data-field="quant[1]">
           <span class="glyphicon glyphicon-minus"></span>
         </button>
-        <button type="button" class="btn btn-default btn-number" ng-click="vm.onPlusClick()" data-type="plus" data-field="quant[1]">
+        <button type="button" class="btn btn-default btn-number" ng-click="vm.onPlusClick(item.name)" data-type="plus" data-field="quant[1]">
           <span class="glyphicon glyphicon-plus"></span>
         </button>
       </div>

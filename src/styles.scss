@@ -1,3 +1,5 @@
+$whiteColor:#f2f2f2;
+
 * {
   -webkit-border-radius: 0 !important;
      -moz-border-radius: 0 !important;
@@ -29,15 +31,19 @@ body {
     padding: 0 5px;
 }
 .the-fieldset {
-    border: 2px solid #f2f2f2;
+    border: 2px solid $whiteColor;
     padding: 10px;
 }
 h1{
-  color: #f2f2f2;
+  color: $whiteColor;
 }
 .navbar-inverse, ul.list-group:not(.settings) li.list-group-item {
   border-color: #333;
   background-color: #222;
+}
+.navbar-fixed-bottom{
+  border-top: 1px solid $whiteColor;
+  opacity: .4;
 }
 
 ul.list-group:not(.settings) li.list-group-item {
@@ -49,7 +55,7 @@ ul.list-group:not(.settings) li.list-group-item {
 .hidden-area{
   background: #666;
   height: 34px; 
-  color: #ccc;
+  color: $whiteColor;
 }
 #topNav{
   & > div{
@@ -64,7 +70,7 @@ ul.list-group:not(.settings) li.list-group-item {
     font-size:3rem;
     line-height: 50px;
     text-decoration: none;
-    color:#ddd;
+    color: $whiteColor;
     width: 100%;
     display: block;
   }
@@ -75,7 +81,7 @@ ul.list-group:not(.settings) li.list-group-item {
   a {
       font-size:2rem;
       text-decoration: none;
-      color:#ddd;
+      color: $whiteColor;
       width: 100%;
       display: block;
       &.active{
@@ -115,7 +121,7 @@ ul.list-group:not(.settings) li.list-group-item {
 
 .progress{
   height: 15px;
-  background: #d6d6d6;
+  background: $whiteColor;
   margin-bottom: 5px;
   border-radius: 0;
   box-shadow: none;
@@ -127,13 +133,13 @@ ul.list-group:not(.settings) li.list-group-item {
   position: relative;
   border-radius: 10%;
   background:linear-gradient(to right, #26ad5f 35%, #087134 68%);
-  animation: animate-positive 2s;
+  animation: animate-positive 1s;
 }
 .progress-value{
-  font-size: 17px;
+  font-size: 14px;
   color: #555;
   font-weight: bold;
   position: absolute;
-  top: 20px;
+  top: 25px;
   right: 0;
 }

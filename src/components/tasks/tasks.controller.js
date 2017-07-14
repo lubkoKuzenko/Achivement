@@ -6,30 +6,36 @@ export default class TasksController {
 		this.$location = $location;
 		this.UpdateLocalStorageService = UpdateLocalStorageService;
 
-		const query = this.$location.search().name;
+		this.tasks = this._filterTasks();
+	}
 
-		this.tasks = this.lodash.filter(this.UpdateLocalStorageService.getTasks(), o => { 
+	_filterTasks(){
+		const query = this.$location.search().name;
+		return this.lodash.filter(this.UpdateLocalStorageService.getTasks(), o => { 
 			if(query === 'All' || !query){
-				return o.progress !== 100;
+				return o.progress !== o.goal;
 			} else {
-				return o.progress !== 100 && o.category === query;
+				return o.progress === o.goal && o.category === query;
 			}
 		})
 	}
 
-	onEditClick(){
-		console.log("edit")
+	onEditClick(name){
+		console.log(name)
 	}
 
-	onDeleteClick(index){
-		this.tasks = this.UpdateLocalStorageService.deleteLocalTasks(index);
+	onDeleteClick(name){
+		this.tasks = this.UpdateLocalStorageService.deleteLocalTasks(name);
+		this.tasks = this._filterTasks();
 	}
 
-	onMinusClick(){
-		console.log("minus")
+	onMinusClick(name){
+		this.UpdateLocalStorageService.minusLocalTasks(name);
+		this.tasks = this._filterTasks();
 	}
 
-	onPlusClick(){
-		console.log("plus")
+	onPlusClick(name){
+		this.UpdateLocalStorageService.plusLocalTasks(name);
+		this.tasks = this._filterTasks();
 	}
 }

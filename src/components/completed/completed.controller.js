@@ -5,6 +5,6 @@ export default class CompletedController {
 		this.$timeout = $timeout;
 		this.UpdateLocalStorageService = UpdateLocalStorageService;
 
-		this.tasks = lodash.filter(angular.fromJson(this.UpdateLocalStorageService.getTasks(), o => { return o.progress === 100 }))
+		this.tasks = lodash.filter(this.UpdateLocalStorageService.getTasks(), o => { return o.progress === o.goal })
 	}
 }
