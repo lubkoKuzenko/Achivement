@@ -5,6 +5,6 @@ export default class CompletedController {
 		this.$timeout = $timeout;
 		this.UpdateLocalStorageService = UpdateLocalStorageService;
 
-		this.tasks = lodash.filter(this.UpdateLocalStorageService.getTasks(), o => { return o.progress === o.goal })
+		this.tasks = lodash.sortByAll(lodash.filter(this.UpdateLocalStorageService.getTasks(), o => { return o.progress === o.goal }), ['difficulty'], ['asc']);
 	}
 }
