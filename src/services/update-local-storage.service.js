@@ -21,6 +21,10 @@ export class UpdateLocalStorageService {
     return service;
   }
 
+  // -----------------------------------------
+  // Getters
+  // -----------------------------------------
+
   getCategories(){
     return !this.lodash.isNull(this.localStorage) ? angular.fromJson(this.localStorageService.get("iAchivement")).categories : null;
   }
@@ -29,10 +33,9 @@ export class UpdateLocalStorageService {
     return !this.lodash.isNull(this.localStorage) ? angular.fromJson(this.localStorageService.get("iAchivement")).tasks : null;
   }
 
-  updateLocalCategories(newCategory){
-    this.caterories.push(newCategory)
-		this.putToLocalStorage();
-  }
+  // -----------------------------------------
+  // Tasks
+  // -----------------------------------------
 
   addLocalTasks(newTask){
     this.tasks.push(newTask)
@@ -65,6 +68,28 @@ export class UpdateLocalStorageService {
     });
     this.putToLocalStorage();
     return this.tasks;
+  }
+
+  // -----------------------------------------
+  // Categories
+  // -----------------------------------------
+
+  addCategory(newCategory){
+    if(!this.lodash.some(this.caterories, newCategory)){
+      this.caterories.push(newCategory)
+      this.putToLocalStorage();
+    } else {
+			alert("Category Exist")
+		}
+    return this.caterories;
+  }
+
+  removeCategory(name){
+    this.lodash.remove(this.caterories, n => {
+      return n.name === name;
+    });
+    this.putToLocalStorage();
+    return this.caterories;
   }
 
   putToLocalStorage(){
