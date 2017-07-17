@@ -1,7 +1,5 @@
 # iAchivement application
 
-, , , , 
-
 * AngularJs 1.6
 * Angular UI Router
 * Webpack 2
