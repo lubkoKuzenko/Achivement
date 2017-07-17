@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# iAchivement application (AngularJs 1.6, Webpack, SASS, Bootstrap3, Angular UI Router)
+# iAchivement application
 
 ### Quick start
 
