@@ -148,3 +148,8 @@ ul.list-group:not(.settings) li.list-group-item {
   top: 25px;
   right: 0;
 }
+
+.col-centered{
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
