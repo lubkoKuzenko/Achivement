@@ -13,7 +13,7 @@ const statsModule = angular.module('stats', [
     $stateProvider
       .state('stats', {
         url: '/stats',
-        template: '<stats></stats>'
+        template: '<stats class="statistics"></stats>'
       });
   })
 

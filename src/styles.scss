@@ -149,7 +149,14 @@ ul.list-group:not(.settings) li.list-group-item {
   right: 0;
 }
 
-.col-centered{
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+
+.statistics{
+  .col-centered{
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .active{
+      background: green;
+    }
+  }
 }
