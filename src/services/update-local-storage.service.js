@@ -115,9 +115,7 @@ export class UpdateLocalStorageService {
         o.isActive = false;
       }
     });
-    
     this.putToLocalStorage();
-    console.log(this.colorSettings)
     return this.colorSettings;
   }
 

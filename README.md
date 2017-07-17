@@ -1,14 +1,10 @@
-### Prerequisits
+<p align="center">
+  <a href="https://github.com/lubkoKuzenko/Achivement" target="_blank">
+    <img width="850" height="950" alt="Angular 2 Fundamentals" src="http://prntscr.com/fwqbuf">
+  </a>
+</p>
 
-Install a few dependencies globally:
-
-```bash
-
-npm install -g babel
-npm install -g webpack
-npm install -g webpack-dev-server
-npm install -g eslint
-```
+# iAchivement application (AngularJs 1.6, Webpack, SASS, Bootstrap3, Angular UI Router)
 
 ### Quick start
 
