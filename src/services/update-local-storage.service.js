@@ -10,6 +10,7 @@ export class UpdateLocalStorageService {
     if(!this.lodash.isNull(this.localStorage)){
       this.caterories = this.localStorage.categories;
 		  this.tasks = this.localStorage.tasks;
+      this.colorSettings = this.localStorage.colorSettings;
     }
   }
 
@@ -31,6 +32,16 @@ export class UpdateLocalStorageService {
 
   getTasks(){
     return !this.lodash.isNull(this.localStorage) ? angular.fromJson(this.localStorageService.get("iAchivement")).tasks : null;
+  }
+
+  getColorSettings(){
+    return !this.lodash.isNull(this.localStorage) ? angular.fromJson(this.localStorageService.get("iAchivement")).colorSettings : null;
+  }
+
+  getActiveColorSettings(){
+    return this.lodash.filter(this.getColorSettings(), o => {
+			return o.isActive;
+		});
   }
 
   // -----------------------------------------
@@ -92,10 +103,29 @@ export class UpdateLocalStorageService {
     return this.caterories;
   }
 
+  // -----------------------------------------
+  // Color
+  // -----------------------------------------
+
+  saveColorSettings(color){
+    this.lodash.find(this.colorSettings, o => { 
+      if(o.name === color.name){
+        o.isActive = true;
+      } else {
+        o.isActive = false;
+      }
+    });
+    
+    this.putToLocalStorage();
+    console.log(this.colorSettings)
+    return this.colorSettings;
+  }
+
   putToLocalStorage(){
     this.localStorageService.set("iAchivement", angular.toJson({
 			categories: this.caterories,
-			tasks: this.tasks
+			tasks: this.tasks,
+      colorSettings: this.colorSettings
 		}));
   }
 }

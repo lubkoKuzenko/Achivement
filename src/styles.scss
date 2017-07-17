@@ -90,6 +90,12 @@ ul.list-group:not(.settings) li.list-group-item {
   }
 }
 
+.settings{
+  .category-icon{
+    margin-right: 10px;
+  }
+}
+
 .progress-detail {
   position: relative;
   font-size: 16px;
@@ -132,7 +138,6 @@ ul.list-group:not(.settings) li.list-group-item {
 .progress .progress-bar{
   position: relative;
   border-radius: 10%;
-  background:linear-gradient(to right, #26ad5f 35%, #087134 68%);
   animation: animate-positive 1s;
 }
 .progress-value{

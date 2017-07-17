@@ -5,6 +5,7 @@
   <div class="panel-body">
     <ul class="list-group settings">
         <li class="list-group-item" ng-repeat="category in vm.caterories track by $index">
+          <i class="category-icon glyphicon {{category.icon}} pull-left"></i>
           <span>{{category.name}}</span>
           <button type="button" ng-click="vm.onRemoveClick(category.name)" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </li>
@@ -19,17 +20,21 @@
       </div>
     </form>
   </div>
-  <div class="panel-footer"><b>{{vm.caterories.length}}</b> categories</div>
+  <div class="panel-footer"><b>{{vm.caterories.length || 0}}</b> categories</div>
 </div>
 
 <div class="panel panel-default">
   <div class="panel-heading">Themes</div>
   <div class="panel-body">
     <ul class="list-group settings">
-        <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
-        <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
-        <li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>
-        <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
+        <li 
+          class="list-group-item list-group-item-success" 
+          ng-class="'list-group-item-' + color.bootstrapClass" 
+          ng-repeat="color in vm.colorSettings track by $index"
+          ng-click="vm.onChangeColorSettings(color)">
+          <span>{{color.name}}<span>
+          <i ng-if="color.isActive" class="glyphicon glyphicon-ok pull-right"></i>
+        </li>
     </ul>
   </div>
 </div>

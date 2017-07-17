@@ -7,6 +7,9 @@ export default class TasksController {
 		this.UpdateLocalStorageService = UpdateLocalStorageService;
 
 		this.tasks = this._filterTasks();
+		this.colorSettings = this.UpdateLocalStorageService.getActiveColorSettings();
+		this.gredient = 'linear-gradient(to right, #:from 35%, #:to 68%)'.replace(':from', this.colorSettings[0].from).replace(':to', this.colorSettings[0].to);
+		console.log(this.gredient)
 	}
 
 	_filterTasks(){
